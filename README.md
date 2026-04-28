@@ -4,9 +4,9 @@ The puzzle game SLICES, now playable through your VS Code terminal!
 
 ## Features
 
-Two playable games
-60-second timer
-Score tracking
+* Two playable games
+* 60-second timer
+* Score tracking
 
 ## Requirements
 
