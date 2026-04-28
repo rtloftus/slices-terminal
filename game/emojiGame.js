@@ -17,6 +17,7 @@ function runEmojiGame({ onComplete }) {
   let canTap = false;
   let startTime = Date.now();
 
+  // Sizes up the grid where emojis will be placed.
   function pad(str, width = 12) {
     return str.padEnd(width, " ");
   }
@@ -24,7 +25,7 @@ function runEmojiGame({ onComplete }) {
   function colorize(text, color) {
     return `\x1b[${color}m${text}\x1b[0m`;
   }
-
+ // Generates a new grid with one odd emoji and starts the timer for when the player can enter an answer.
   function generateGrid() {
     const normal = Math.floor(Math.random() * FACES.length);
 
@@ -47,6 +48,7 @@ function runEmojiGame({ onComplete }) {
     }, 500);
   }
 
+  // Renders the grid to the console with colors and instructions.
   function render() {
     console.clear();
 
@@ -67,7 +69,7 @@ function runEmojiGame({ onComplete }) {
       console.log("");
     }
 
-    console.log("Type 1–9");
+    console.log("Type 1-9");
     console.log("Press Q to quit");
   }
 
@@ -75,6 +77,7 @@ function runEmojiGame({ onComplete }) {
     process.stdin.removeListener('data', handleInput);
   }
 
+  // Handles user input, checks if it's correct, and calls onComplete with the score and time taken.
   function handleInput(key) {
     if (key === 'q') process.exit();
     if (!canTap) return;

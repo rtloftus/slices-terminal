@@ -1,3 +1,4 @@
+//imports the two games that will be randomly selected for the user to play
 const runColorGame = require('./colorGame');
 const runEmojiGame = require('./emojiGame');
 
@@ -11,6 +12,7 @@ let score = 0;
 let timeLeft = 60;
 let timer = null;
 
+// Displays the splash screen and waits for the user to start the game.
 function showSplash(onDone) {
   console.clear();
 
@@ -53,6 +55,7 @@ function gameOver() {
   process.exit();
 }
 
+// Starts the countdown timer and ends the game when time runs out.
 function startTimer() {
   timer = setInterval(() => {
     timeLeft--;
@@ -74,7 +77,7 @@ function nextRound() {
   if (timeLeft <= 0) return;
 
   process.stdin.removeAllListeners('data');
-
+  // Randomly selects a game and starts it, passing in the time left and a callback for when the game is complete.
   const game = games[Math.floor(Math.random() * games.length)];
 
   game({

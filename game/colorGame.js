@@ -1,6 +1,8 @@
+//defines colors and words available for users to choose from
 const COLORS = ["Red", "Blue", "Green", "Magenta", "Yellow"];
 const WORDS = ["RED", "BLUE", "GREEN", "MAGENTA", "YELLOW"];
 
+// Colors the text for console output.
 function colorText(text, color) {
   const map = {
     Red: "\x1b[31m",
@@ -16,6 +18,7 @@ function runColorGame({ onComplete }) {
   let current = null;
   let modeWord = true;
 
+  // Generates a new round and randomly decides whether the player should pick the color or the word.
   function generateRound() {
     const colorIdx = Math.floor(Math.random() * COLORS.length);
     let wordIdx = Math.floor(Math.random() * WORDS.length);
@@ -32,6 +35,7 @@ function runColorGame({ onComplete }) {
     modeWord = Math.random() < 0.5;
   }
 
+  // Renders the game state to the console with instructions.
   function render() {
     console.clear();
 
@@ -60,7 +64,7 @@ function runColorGame({ onComplete }) {
 
     const num = parseInt(key);
 
-    // FIXED: only 1–5 valid
+    // FIXED: only 1-5 valid
     if (!num || num < 1 || num > 5) return;
 
     const answer = WORDS[num - 1];
