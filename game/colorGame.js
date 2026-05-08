@@ -40,7 +40,7 @@ function runColorGame({ onComplete }) {
     console.clear();
 
     console.log("=== COLOR GAME ===\n");
-    console.log(modeWord ? "Pick the WORD" : "Pick the COLOR\n");
+    console.log(modeWord ? "Pick the WORD" : "Pick the COLOR");
 
     const word = WORDS[current.wordIdx];
     const color = COLORS[current.colorIdx];
